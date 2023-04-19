@@ -1,0 +1,3 @@
+const SEARCH_RES = "SEARCH_RES";
+
+export {SEARCH_RES}
