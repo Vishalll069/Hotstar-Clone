@@ -12,6 +12,7 @@ export const MovieCard = ({movie}) => {
     <Box
             height={250}
             borderRadius={20}
+            // zIndex={100}
             bgImage={`url(https://image.tmdb.org/t/p/w1280/${movie.poster_path})`}
             bgSize={"contain"}
             bgPosition="center"
