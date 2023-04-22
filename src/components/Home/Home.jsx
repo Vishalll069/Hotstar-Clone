@@ -5,7 +5,8 @@ import { ActionCalls } from "../../actions/Action"
 import YouTube from 'react-youtube';
 import ReactPlayer from 'react-player'
 import vid from "../../../public/trailer.mp4"
-import { GiThorHammer,GiSpiderWeb,GiAlarmClock } from "react-icons/gi"
+import { GiThorHammer, GiSpiderWeb, GiAlarmClock } from "react-icons/gi"
+
 
 
 export const Home = () => {
@@ -27,7 +28,7 @@ export const Home = () => {
         const currentScrollPos = window.pageYOffset;
         const maxScroll = document.body.scrollHeight - window.innerHeight;
         const scrollPercent = currentScrollPos / maxScroll;
-        const opacity = 1 - scrollPercent * 3.2;
+        const opacity = 1 - scrollPercent * 3.1;
         setOpacity(opacity);
     }
     const opts = {
@@ -38,6 +39,7 @@ export const Home = () => {
             autoplay: 1,
         },
     };
+    // let  ="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll)
@@ -56,7 +58,7 @@ export const Home = () => {
 
     }, [])
     return (
-        <Box bg={"Black"} >
+        <Box  bg={"#0F1014"}>
 
             <Flex m={"0 4% 2% 8%"} pt={"2%"} >
                 <Box w={"40%"}>
@@ -108,8 +110,8 @@ export const Home = () => {
 
 
                     {/* <YouTube videoId ="-xt1y8Ldsos" opts={opts}/> */}
-                    <video autoPlay muted loop style={{ objectFit: "cover",width:"100%",height: "100vh" }}>
-                        <source src={vid}  />
+                    <video autoPlay muted loop style={{ objectFit: "cover", width: "100%", height: "100vh" }}>
+                        <source src={vid} />
                         Your browser does not support HTML5 video.
                     </video>
                 </Box>
@@ -117,35 +119,35 @@ export const Home = () => {
             </Box>
 
             {/* title detail box over video  */}
-            <Box zIndex={4} position={"relative"} marginTop={"-30%"}>
+            <Box zIndex={4} position={"relative"} marginTop={"-35%"} ml={"8%"}>
                 <Flex>
 
 
 
 
-                    <Box color={"white"} ml={"8%"} mb={"10%"}>
+                    <Box color={"white"} mb={"5%"}>
                         <Box pt={"1%"} >
                             <Heading fontSize={"6xl"} color="goldenrod">
                                 Avengers
                             </Heading>
                         </Box>
-                        <Box  ml={"15px"}>
-                            <Flex><GiSpiderWeb size={"35px"} color='silver'/>
-                            <Heading color={"silver"} >
-                                Reunite
-                            </Heading>
-                             
+                        <Box ml={"15px"}>
+                            <Flex><GiSpiderWeb size={"35px"} color='silver' />
+                                <Heading color={"silver"} >
+                                    Reunite
+                                </Heading>
 
-                                <GiThorHammer size={"35px"} color='silver'  />
-                            
+
+                                <GiThorHammer size={"35px"} color='silver' />
+
 
                             </Flex>
-                           
+
                         </Box>
                         <Box pt={"3"} fontWeight={"bold"}>
                             <Flex mb={'10px'}>
-                                
-                            <Text> Jan 2023 2h 30m </Text><GiAlarmClock size={"20px"}/>
+
+                                <Text> Jan 2023 2h 30m </Text><GiAlarmClock size={"20px"} />
                             </Flex>
                             <Text> Action| Demons| Horror| School | Supernatural</Text>
                         </Box>
@@ -156,19 +158,41 @@ export const Home = () => {
                         </Box>
                         <Box mt={"80px"} >
                             <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}>Watch Now </Button>
-                            <Button colorScheme='whiteAlpha' size={"lg"} fontSize={"3xl"} ml={"20px"}><GiSpiderWeb/></Button>
+                            <Button colorScheme='whiteAlpha' size={"lg"} fontSize={"3xl"} ml={"20px"}><GiSpiderWeb /></Button>
                         </Box>
                     </Box>
 
-                    <Box w={"50%"} mr={"1%"} mt={"20%"} p={"1%"} >
-                        <Flex overflowX={"auto"} gap={"8px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }}>
+                    <Box w={"50%"}  mt={"28%"} p={"1%"} mr={"90px"}>
+                        <Flex
+                            overflowX={"scroll"}
+                            gap={"7px"}
+                        
+                            p={"10px"}
+                           
+                            sx={{ "::-webkit-scrollbar": { display: "none" }, "maxWidth": "500px" }}
+                        >
                             {PopMovie?.map((ele, i) => {
-                                return <Box key={i + 1} minW={"17%"} h={"40px"} border={"1px solid white"} >
-                                    <Image src={base + ele.poster_path} borderRadius={'3px'} w={"100%"} />
-                                </Box>
+                                return (
+                                    <Box
+                                        key={i + 1}
+                                        minW={'80px'}
+                                        h={'45px'}
+                                        border={"1px solid white"}
+                                        transition={"0.3s"}
+                                        _hover={{transform:"translate(0,-10px)"}}
+                                    >
+                                        <Image
+                                            src={base + ele.poster_path}
+                                            borderRadius={"3px"}
+                                            w={"100%"}
+                                            h={"100%"}
+                                            objectFit={"cover"}
+                                            objectPosition={"center top"}
+                                        />
+                                    </Box>
+                                );
                             })}
                         </Flex>
-
                     </Box>
                 </Flex>
 
@@ -176,7 +200,7 @@ export const Home = () => {
 
                 {/* All cards(poster) div start from here */}
 
-                <Box ml="1%" mr={"0"} mb={"35px"} >
+                <Box mr={"0px"} mb={"35px"} >
                     <Box p={"1%"} pl={"0"} color={"white"} >
 
                         <Heading fontSize={"2xl"}>
@@ -200,7 +224,7 @@ export const Home = () => {
             <Box bg={"pink.200"} w={"20%"} h={"300px"} position={"relative"}>div 4</Box>
             <Box bg={"blackAlpha.300"} w={"20%"} h={"300px"} position={"relative"}> div 5</Box> */}
 
-                <Box ml="1%" mr={"0"} mb={"35px"}  >
+                <Box mr={"0"} mb={"35px"}  >
                     <Box p={"1%"} pl={"0"} color={"white"}>
 
                         <Heading fontSize={"2xl"}>
@@ -218,7 +242,7 @@ export const Home = () => {
                 </Box>
 
 
-                <Box ml="1%" mr={"0"}  mb={"35px"} >
+                <Box ml="1%" mr={"0"} mb={"35px"} >
                     <Box p={"1%"} pl={"0"} color={"white"}>
 
                         <Heading fontSize={"2xl"}>
@@ -235,7 +259,7 @@ export const Home = () => {
                     </Flex>
                 </Box>
 
-                <Box ml="1%" mr={"0"}  mb={"35px"} >
+                <Box ml="1%" mr={"0"} mb={"35px"} >
                     <Box p={"1%"} pl={"0"} color={"white"}>
 
                         <Heading fontSize={"2xl"}>
@@ -269,7 +293,7 @@ export const Home = () => {
                     </Flex>
                 </Box>
 
-                <Box ml="1%" mr={"0"}  mb={"35px"} >
+                <Box ml="1%" mr={"0"} mb={"35px"} >
                     <Box p={"1%"} pl={"0"} color={"white"}>
 
                         <Heading fontSize={"2xl"}>

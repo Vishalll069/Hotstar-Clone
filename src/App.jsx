@@ -6,12 +6,19 @@ import { Videoplayer } from './components/Home/Videoplayer'
 import { Navbar } from './components/Navbar'
 import { Subscribe } from './components/Subscription/Subscribe'
 import { Genre } from './components/Genre'
+import { Allroute } from './Routes/Allroute'
+
 
 function App() {
 
   return (
     <div className="App">
-      <Home/>
+      <Navbar/>
+      <Allroute/>
+      {/* <Videoplayer/> */}
+      
+      {/* <Home/> */}
+      
        Disney + HotStar......
        {/* <SearchPage /> */}
     </div>
