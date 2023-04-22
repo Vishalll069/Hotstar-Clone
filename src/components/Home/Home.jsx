@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { ActionCalls } from "../../actions/Action"
 import YouTube from 'react-youtube';
 import ReactPlayer from 'react-player'
-import vid from "../../../public/videoplayback.webm"
+import vid from "../../../public/trailer.mp4"
 import { GiThorHammer,GiSpiderWeb,GiAlarmClock } from "react-icons/gi"
 
 
