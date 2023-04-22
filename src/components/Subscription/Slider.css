@@ -1,0 +1,32 @@
+.slide img{
+    margin: 10px 0px;
+}
+.container{
+    /* background-color: red; */
+    height: 100vh;
+    margin: auto;
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    filter: brightness(50%);
+    filter: opacity(30%);
+    overflow-y: auto ;
+    overflow: hidden;
+}
+
+.slider{
+    display: block;
+    /* width: calc(250px * 18); */
+    width: 100%;
+    animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateY(calc(-250px * 9));
+    }
+}
