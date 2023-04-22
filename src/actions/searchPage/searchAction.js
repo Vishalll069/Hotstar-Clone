@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  GET_GENRE,
     GET_POP,
   SEARCH_ERROR,
   SEARCH_LOAD,
@@ -44,5 +45,22 @@ const getPopular = () => {
   };
 };
 
+const getByGenre = (genreId) => {
+  return (dispatch) => {
+    dispatch({ type: SEARCH_LOAD });
+    try {
+      axios
+        .get(
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&with_original_language=hi`
+        )
+        .then((res) => {
+          dispatch({ type: GET_GENRE, payload: res.data.results });
+        });
+    } catch (error) {
+      dispatch({ type: SEARCH_ERROR });
+    }
+  };
+};
 
-export {searchAction, getPopular}
+
+export {searchAction, getPopular, getByGenre}
