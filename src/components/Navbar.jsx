@@ -13,6 +13,7 @@ export const Navbar = () => {
     <Flex
       position={"fixed"}
       m={"3rem"}
+      zIndex={20}
       mt={"15rem"}
     //   bg={"white"}
     bg={'transparent'}

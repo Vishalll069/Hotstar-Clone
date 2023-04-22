@@ -5,11 +5,16 @@ import SearchPage from './components/Search/SearchPage'
 import { Videoplayer } from './components/Home/Videoplayer'
 import { Navbar } from './components/Navbar'
 
+
 function App() {
 
   return (
     <div className="App">
+      <Navbar/>
+      {/* <Videoplayer/> */}
+      
       <Home/>
+      
        Disney + HotStar......
        {/* <SearchPage /> */}
     </div>

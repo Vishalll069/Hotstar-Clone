@@ -18,6 +18,8 @@ export const MovieCard = ({movie}) => {
             bgRepeat="no-repeat"
             position="relative"
             cursor="pointer"
+            minW={"11%"}
+            
             style={{ transition: "all 300ms ease " }}
             _hover={{ transform: "scale(1.5)", zIndex: "2", backgroundImage:'none' }}
           >
