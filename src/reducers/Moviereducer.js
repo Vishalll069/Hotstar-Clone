@@ -17,12 +17,12 @@ export const Moviereducer = (state = initial, action) => {
 
         case Movies_popular: {
             return {
-                ...state, PopularMovies: action.payload, Allinone: [...Allinone, action.payload]
+                ...state, PopularMovies: action.payload
             }
         }
         case Movies_TopRating: {
             return {
-                ...state, TopMovies: action.payload, Allinone: [...Allinone, action.payload]
+                ...state, TopMovies: action.payload
             }
         }
         case Movies_Upcoming: {
@@ -32,12 +32,12 @@ export const Moviereducer = (state = initial, action) => {
         }
         case TvShow_popular: {
             return {
-                ...state, PopularShow: action.payload, Allinone: [...Allinone, action.payload]
+                ...state, PopularShow: action.payload
             }
         }
         case TvShow_toprating: {
             return {
-                ...state, topShow: action.payload, Allinone: [...Allinone, action.payload]
+                ...state, topShow: action.payload
             }
         }
         case TvShow_upcoming: {
