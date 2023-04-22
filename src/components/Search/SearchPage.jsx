@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Flex,
@@ -8,12 +8,21 @@ import {
 } from "@chakra-ui/react";
 import {Search2Icon} from '@chakra-ui/icons'
 import {useDebounce} from 'use-debounce'
+import { SearchBody } from "./searchBody";
+import { useDispatch } from "react-redux";
+import { searchAction } from "../../actions/searchPage/searchAction";
 // import { BsSearch } from "react-icons/bs";
 
 const SearchPage = () => {
 
+    const dispatch = useDispatch();
     const [searchIn , setSearchIn] = useState("");
-    const[debouncedText] = useDebounce(searchIn, 500)
+    const[debouncedText] = useDebounce(searchIn, 1000)
+
+    useEffect(()=>{
+      dispatch(searchAction(debouncedText));
+    },[debouncedText])
+
 
 
     const handleSerchIn =(e)=>{
@@ -39,6 +48,7 @@ const SearchPage = () => {
       </InputGroup>
 
     </Box>
+    <SearchBody debounced={debouncedText}/>
     </>
   );
 };

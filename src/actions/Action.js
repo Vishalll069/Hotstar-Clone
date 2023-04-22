@@ -27,8 +27,10 @@ const Tvpop_success = (payload) => {
     })
 }
 const TvTop_success = (payload) => {
+    console.log("payload")
+    console.log(payload)
     return ({
-        tyype: TvShow_toprating,
+        type: TvShow_toprating,
         payload
     })
 
@@ -40,34 +42,34 @@ const Tvupcmn_Success = (payload) => {
     })
 }
 
-const ActionCalls = () => {
+ export const ActionCalls = () => {
     return function (dispatch) {
         const Popular_Movie = (dispatch) => {
             axios.get("https://api.themoviedb.org/3/movie/popular?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
                 .then((d) => {
-                    console.log(d)
-                    dispatch(Moviespop_Success(d))
+                    console.log(d.data.results)
+                    dispatch(Moviespop_Success(d.data.results))
                 })
                 .catch((er) => {
                     console.log("error in Movies popular" + er)
                 })
 
         }
-        const Top_Movies = (dispatch) => {
-            axios.get("https://api.themoviedb.org/3/movie/top_rated?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
-                .then((d) => {
-                    console.log(d)
-                    dispatch(MoviesTop_Success(d))
-                })
-                .catch((er) => {
-                    console.log("error in Top Movies" + er)
-                })
-        }
+         const Top_Movies = (dispatch) => {
+             axios.get("https://api.themoviedb.org/3/movie/top_rated?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
+                 .then((d) => {
+                     console.log(d)
+                     dispatch(MoviesTop_Success(d.data.results))
+                 })
+                 .catch((er) => {
+                     console.log("error in Top Movies" + er)
+                 })
+         }
         const Upcoming_Movies = (dispatch) => {
             axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
                 .then((d) => {
                     console.log(d)
-                    dispatch(Movies_upcSuccess(d))
+                    dispatch(Movies_upcSuccess(d.data.results))
                 })
                 .catch((er) => {
                     console.log("error in Upcoming Movies " + er)
@@ -77,7 +79,7 @@ const ActionCalls = () => {
             axios.get("https://api.themoviedb.org/3/tv/popular?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
                 .then((d) => {
                     console.log(d)
-                    dispatch(Tvpop_success(d))
+                    dispatch(Tvpop_success(d.data.results))
                 })
                 .catch((er) => {
                     console.log("error in popular Shows " + er)
@@ -87,8 +89,8 @@ const ActionCalls = () => {
         const Top_Shows = (dispatch) => {
             axios.get("https://api.themoviedb.org/3/tv/top_rated?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
                 .then((d) => {
-                    console.log(d)
-                    dispatch(TvTop_success(d))
+                    console.log(d.data.results)
+                    dispatch(TvTop_success(d.data.results))
                 })
                 .catch((er) => {
                     console.log("error in Top Shows " + er)
@@ -98,7 +100,7 @@ const ActionCalls = () => {
             axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=ce0659c825d9b20b83594dba4f3043c8&language=en-US&page=1")
                 .then((d) => {
                     console.log(d)
-                    dispatch(Tvupcmn_Success(d))
+                    dispatch(Tvupcmn_Success(d.data.results))
                 })
                 .catch((er) => {
                     console.log("error in Upcoming Shows " + er)
@@ -107,10 +109,10 @@ const ActionCalls = () => {
 
         Popular_Movie(dispatch);
         Top_Movies(dispatch);
-        Upcoming_Movies(dispatch);
-        Popular_Shows(dispatch);
-        Top_Shows(dispatch);
-        Upcoming_Shows(dispatch);
+         Upcoming_Movies(dispatch);
+         Popular_Shows(dispatch);
+         Top_Shows(dispatch);
+         Upcoming_Shows(dispatch);
 
     }
 }

@@ -1,0 +1,28 @@
+/* .shailesh{
+    background-color: 'orange';
+    background-image: 'blue'
+} */
+/* .shailesh:hover{
+    background-color: rgb(8,74,206);
+    background-image: linear-gradient(red, yellow);
+    scale: 1.1;
+} */
+.shailesh:hover{
+    transform: scale(1.02);
+    transition-duration: 0.5s;
+}
+.after::after{
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    background-image: linear-gradient(rgb(11,85,223),  rgb(6,41,151));
+    color: white;
+    border-radius: 50%;
+    content: '\2713';
+    display: inline-block;
+    padding: 8px 12px;
+    border: 2px;
+}
+#a{
+    border: 2px solid white;
+}
