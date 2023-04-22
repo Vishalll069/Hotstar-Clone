@@ -2,7 +2,6 @@ import { usePanGesture,Box } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import ReactPlayer from 'react-player/youtube'
 
-import vid from "../../../public/videoplayback.webm"
 
 
 export const Videoplayer = () => {
