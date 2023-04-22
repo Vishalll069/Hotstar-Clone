@@ -25,5 +25,4 @@ const SearchReducer =(state = initialSearch, action)=>{
 
 
 }
-
-export {SearchReducer}
+export {searchReducer}

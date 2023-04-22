@@ -6,4 +6,4 @@ import {SearchReducer} from './reducers/searchPage/searchReducer'
 
 let cb = combineReducers({Moviereducer, SearchReducer})
 const store = createStore(cb,applyMiddleware(thunk))
-export {store}
+export {store};
