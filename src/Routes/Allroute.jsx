@@ -7,6 +7,9 @@ import SearchPage from '../components/Search/SearchPage'
 import { Genre } from '../components/Genre'
 import { Subscribe } from '../components/Subscription/Subscribe'
 import { Privateroute } from './Privateroute'
+import Login from '../components/Subscription/Login'
+import Payment2 from '../components/Payment/Payment'
+import Otp from '../components/Payment/Otp'
 
 export const Allroute = () => {
   return (
@@ -18,6 +21,10 @@ export const Allroute = () => {
             <Route path='/search' element={<SearchPage/>}/>
             <Route path='/genre/:gname/:id' element={<Genre/>}/>
             <Route path='/subscribepage' element={<Subscribe/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/payment' element={<Payment2/>}/>
+            <Route path='/Payment_Otp' element={<Otp/>}/>
+
         </Routes>
     </div>
   )

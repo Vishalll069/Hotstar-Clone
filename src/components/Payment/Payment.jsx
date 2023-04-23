@@ -8,15 +8,11 @@ function Payment2(props) {
     
     const { isOpen, onOpen, onClose } = useDisclosure()
 
-
-
-
-
     
   return (
     <Box width="100%" justifyContent="center" display="Flex"  m="0" p="0"  backgroundColor="#f5f5f5">
-        <Box w={{ base: '95%', md: '70%', lg: '35%' }}  border="1px solid ">
-           <Box   backgroundColor="#F5F5F5" width="100%" height='10%' m="0" p="0">
+        <Box w={{ base: '95%', md: '70%', lg: '35%' }}  boxShadow={'0px 0px 1px solid black'}>
+           <Box   backgroundColor="#F5F5F5" width="100%" height='7%' m="0" p="0">
           
                  <Text m="0 5%"  backgroundColor="#F5F5F5"    p="1rem" fontSize={{ base: '10px', md: '15px', lg: '20px' }} fontWeight="bold">
                           Pay Securely
@@ -33,10 +29,10 @@ function Payment2(props) {
                    />
                    <VStack   >
                      <Text  fontWeight="bold" fontSize={{ base: '10px', md: '15px', lg: '20px' }}>
-                      {props.price}/Year
+                      899/Year
                      </Text>
-                     <Text fontSize="12px"   > 
-                     {props.date}
+                     <Text fontSize="lg"  fontWeight={'bold'} > 
+                        24/04/2024
                      </Text>
                  </VStack>
                  
