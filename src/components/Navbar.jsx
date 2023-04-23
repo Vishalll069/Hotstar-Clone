@@ -8,6 +8,7 @@ import { CgProfile, CgHome } from "react-icons/cg";
 // import {IoIosArrowForward} from '@chakra-ui/icons'
 
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -69,7 +70,7 @@ export const Navbar = () => {
             _hover={{ transform: "scale(1.3)", zIndex: "2", fontWeight: "700" }}
             cursor={"pointer"}
           >
-            <Search2Icon color={"whitesmoke"} />
+            <Link to={"/search"}><Search2Icon color={"whitesmoke"} /></Link>
             <Text
               className="nav_text"
               ml={"1rem"}
@@ -87,9 +88,9 @@ export const Navbar = () => {
             _hover={{ transform: "scale(1.3)", zIndex: "2", fontWeight: "700" }}
             cursor={"pointer"}
           >
-            <CgHome
+            <Link to={"/"}><CgHome
               style={{ color: "white", backgroundColor: "transparent" }}
-            />
+            /></Link>
             <Text
               className="nav_text"
               ml={"1rem"}

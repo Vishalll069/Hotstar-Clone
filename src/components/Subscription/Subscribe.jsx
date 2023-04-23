@@ -58,7 +58,7 @@ export const Subscribe = () => {
 
   if (isPremium) {
     return (
-      <Box bg={'black'}>
+      <Box bg={"#0F1014"}>
 
         <Flex>
           {/* <button >abc</button> */}
@@ -231,63 +231,19 @@ export const Subscribe = () => {
         </Flex>
 
         {/* Footer */}
-        <Box color={'white'} mt={'10'} py={'6'} bg={'black'}>
-          {/* Top Footer  */}
-          <Flex bg='black' gap={'20'} justifyContent={'space-evenly'} mb={'10'}>
-            <Stack>
-              <Text mb={'5'}>Company</Text>
-              <Text color={'rgb(112,122,148)'}>About Us</Text>
-              <Text color={'rgb(112,122,148)'}>Careers</Text>
-            </Stack>
-
-            <Stack>
-              <Text mb={'3'}>View Website in</Text>
-              <Button leftIcon={<TbCheck />} variant={'ghost'} colorScheme='black' color={'rgb(112,122,148)'}>English</Button>
-            </Stack>
-
-            <Stack>
-              <Text mb={'4'}>Need Help?</Text>
-              <Text color={'rgb(112,122,148)'}>Visit Help Center</Text>
-              <Text color={'rgb(112,122,148)'}>Share Feedback</Text>
-            </Stack>
-
-
-            <Stack>
-              <Text mb={'2'}>Connect with Us</Text>
-              <ButtonGroup>
-                <Button colorScheme='black'><ImFacebook></ImFacebook></Button>
-                <Button colorScheme='black'><BsTwitter></BsTwitter></Button>
-              </ButtonGroup>
-            </Stack>
-          </Flex>
-
-          {/* bottom footer  */}
-          <Flex justifyContent={'space-between'} mx={'20'} px={'16'}>
-            <Box color={'rgb(112,122,148)'} ml={'-2px'}>
-              <Text mb={'2'}>2023 STAR. All Rights Reserved</Text>
-              <Text>Terms of Use  Privacy Policy  FAQ</Text>
-            </Box>
-            <Box display={'flex'} gap={'10'} mr={'-20px'}>
-              <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1661346101/google-playstore'
-                width={'140px'} height={'40px'} />
-              <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1661346071/ios-appstore'
-                width={'140px'} height={'40px'} />
-            </Box>
-          </Flex>
-
-        </Box>
+       
 
       </Box>
     )
   }
   else {
     return (
-      <Box bg={'black'}>
+      <Box bg={"#0F1014"}>
         <Flex>
           {/* left box */}
-          <Box mx={'10'} width={'50%'} height={'112vh'}>
+          <Box mx={'10'} width={'50%'} height={'100vh'}>
 
-            <Box className='carousel' height={'112vh'} zIndex={'0'}>
+            <Box className='carousel' height={'100vh'} zIndex={'0'}>
               <Slider />
             </Box>
 
@@ -318,7 +274,7 @@ export const Subscribe = () => {
           </Box>
 
           {/* right box  */}
-          <Box bg={'rgb(14,16,20)'} fontSize={'lg'} width={'50%'} mr={'12'}>
+          <Box bg={'"#0F1014"'} fontSize={'lg'} width={'50%'} mr={'12'}>
             {/* login language buttons */}
             <Box display={'flex'} gap={'6'} justifyContent={'end'} my={'5'}>
               <Box bg={'rgb(34,35,38)'}>
@@ -337,8 +293,8 @@ export const Subscribe = () => {
             </Box>
 
             {/* subscription plan */}
-            <TableContainer bg={'black'}>
-              <Table variant='unstyled' size={'md'} color={'white'}>
+            <TableContainer bg={"#0F1014"}>
+              <Table variant='unstyled' size={'md'} color={'white'} my={"2%"}>
                 <Thead>
                   <Tr>
                     <Th>  </Th>
@@ -348,7 +304,7 @@ export const Subscribe = () => {
                 </Thead>
                 <Tbody>
                   <Tr>
-                    <Td><Box>All Content</Box>
+                    <Td  ><Box>All Content</Box>
                       <Box color={'rgb(112,122,148)'}>Movies,Live Sports,TV, Specials</Box></Td>
                     <Td fontSize={'3xl'} bg={'rgb(31,33,42)'}><TbCheck /></Td>
                     <Td fontSize={'3xl'} color={'rgb(112,122,148)'}><TbCheck /></Td>
@@ -450,51 +406,7 @@ export const Subscribe = () => {
 
 
         {/* Footer */}
-        <Box color={'white'} mt={'10'} py={'6'}>
-          {/* Top Footer  */}
-          <Flex bg='black' gap={'20'} justifyContent={'space-evenly'} mb={'10'}>
-            <Stack>
-              <Text mb={'5'}>Company</Text>
-              <Text color={'rgb(112,122,148)'}>About Us</Text>
-              <Text color={'rgb(112,122,148)'}>Careers</Text>
-            </Stack>
-
-            <Stack>
-              <Text mb={'3'}>View Website in</Text>
-              <Button leftIcon={<TbCheck />} variant={'ghost'} colorScheme='black' color={'rgb(112,122,148)'}>English</Button>
-            </Stack>
-
-            <Stack>
-              <Text mb={'4'}>Need Help?</Text>
-              <Text color={'rgb(112,122,148)'}>Visit Help Center</Text>
-              <Text color={'rgb(112,122,148)'}>Share Feedback</Text>
-            </Stack>
-
-
-            <Stack>
-              <Text mb={'2'}>Connect with Us</Text>
-              <ButtonGroup>
-                <Button colorScheme='black'><ImFacebook></ImFacebook></Button>
-                <Button colorScheme='black'><BsTwitter></BsTwitter></Button>
-              </ButtonGroup>
-            </Stack>
-          </Flex>
-
-          {/* bottom footer  */}
-          <Flex justifyContent={'space-between'} mx={'20'} px={'16'}>
-            <Box color={'rgb(112,122,148)'} ml={'-2px'}>
-              <Text mb={'2'}>2023 STAR. All Rights Reserved</Text>
-              <Text>Terms of Use  Privacy Policy  FAQ</Text>
-            </Box>
-            <Box display={'flex'} gap={'10'} mr={'-20px'}>
-              <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1661346101/google-playstore'
-                width={'140px'} height={'40px'} />
-              <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1661346071/ios-appstore'
-                width={'140px'} height={'40px'} />
-            </Box>
-          </Flex>
-
-        </Box>
+       
         {/* <Box><Footer/></Box> */}
 
 
