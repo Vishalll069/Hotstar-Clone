@@ -19,7 +19,7 @@ import {
     ModalCloseButton,
 } from '@chakra-ui/react'
 
-const Login = () => {
+const Login = ({showlogin}) => {
     const [state, setState] = useState("");
     const [btn,setbtn]=useState(false);
     const [otp,setotp]=useState(false);
@@ -51,7 +51,7 @@ const Login = () => {
            }    
 
            {
-            (!otp) &&  <Modal isOpen={true} onClose={onClose} size={'4xl'} >
+            (!otp) &&  <Modal isOpen={showlogin} onClose={onClose} size={'4xl'} >
             <ModalOverlay />
             <ModalContent bg={'rgb(22,24,31)'}>
                 <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />

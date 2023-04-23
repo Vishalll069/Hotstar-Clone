@@ -1,13 +1,13 @@
 import React from 'react'
 // import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 // import { Carousel } from 'react-responsive-carousel';
-import '../Components/carousal.css';
+import './carousal.css';
 import {
   Box, Flex, Image, Heading} from '@chakra-ui/react'
 
 const Carousal = () => {
   return (
-    <Box className='main' width={'400px'} zIndex={'1'} bg={'black'}>
+    <Box className='main' zIndex={'1'} bg={'black'}>
      <Box className='container'>
                 <Box className='slider'>
                   <Box className='slide'>

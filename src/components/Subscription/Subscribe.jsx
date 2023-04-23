@@ -20,6 +20,7 @@ import { RxCross2 } from "react-icons/rx";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { ImFacebook } from "react-icons/im";
 import { BsTwitter } from "react-icons/bs";
+import Login from './Login';
 
 // import Footer from './Footer';
 
@@ -30,6 +31,7 @@ export const Subscribe = () => {
   const [button,setButton] = useState(false);
 
   const[isSuper,setSuper] = useState(true);
+  const[showlogin,setshowlogin]= useState(false)
 
   const Super = () => {
     setPremium(false);
@@ -64,9 +66,9 @@ export const Subscribe = () => {
           {/* <button >abc</button> */}
 
           {/* left box */}
-          <Box mx={'10'} width={'50%'} height={'112vh'}>
+          <Box width={'50%'} height={'100vh'}>
 
-            <Box className='carousel' height={'112vh'} zIndex={'0'}>
+            <Box className='carousel' height={'100vh'} zIndex={'0'}>
               <Slider />
             </Box>
 
@@ -97,7 +99,7 @@ export const Subscribe = () => {
           </Box>
 
           {/* right box    bg={'rgb(14,16,20)'}  */}
-          <Box fontSize={'lg'} width={'50%'} mr={'12'}>
+          <Box fontSize={'lg'} width={'50%'} mr={'12'} >
             {/* login language buttons */}
             <Box display={'flex'} gap={'6'} justifyContent={'end'} my={'5'}>
               <Box bg={'rgb(34,35,38)'}>
@@ -113,12 +115,17 @@ export const Subscribe = () => {
 
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
-                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
+                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={()=>setshowlogin(!showlogin)}
+                >Login</Button>
             </Box>
+
+            {/* modal login  */}
+            
 
             {/* subscription plan */}
             <TableContainer>
-              <Table variant='unstyled' size={'md'} color={'white'}>
+              <Table variant='unstyled' size={'md'} color={'white'} my={"2%"}>
                 <Thead>
                   <Tr>
                     <Th>  </Th>
@@ -241,7 +248,7 @@ export const Subscribe = () => {
       <Box bg={"#0F1014"}>
         <Flex>
           {/* left box */}
-          <Box mx={'10'} width={'50%'} height={'100vh'}>
+          <Box  width={'50%'} height={'100vh'}>
 
             <Box className='carousel' height={'100vh'} zIndex={'0'}>
               <Slider />

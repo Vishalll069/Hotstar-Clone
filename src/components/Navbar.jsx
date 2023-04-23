@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <Box position={"fixed"} zIndex={10}>
+    <Box position={"fixed"} zIndex={10} display={["none","none","none","block"]}>
       <Box  m={"2rem"}>
         <Image src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" />
         <Box cursor={'pointer'}>
