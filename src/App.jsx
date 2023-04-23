@@ -22,7 +22,7 @@ function App() {
       
       {/* <Home/> */}
       
-       Disney + HotStar......
+     
        {/* <SearchPage /> */}
     </div>
   )

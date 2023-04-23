@@ -1,0 +1,28 @@
+.icons{
+    font-size: 35px;
+
+  
+  }
+  .link2{
+    min-width: 13%;
+  }
+  @media screen and (max-width:768px){
+    .icons{
+      font-size:20px;
+      
+    }
+    .link2{
+        min-width: 20%;
+    }
+    
+  }
+  @media screen and (max-width:998px) and (min-width:768px){
+    .icons{
+      font-size:25px;
+      
+    }
+    .link2{
+        min-width: 17%;
+    }
+    
+  }
