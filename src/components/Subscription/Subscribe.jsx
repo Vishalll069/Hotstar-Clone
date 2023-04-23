@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import './Subscribe.css'
 import Slider from './Slider';
 import { useState } from 'react';
@@ -20,6 +21,7 @@ import { RxCross2 } from "react-icons/rx";
 import { RiArrowRightSLine } from "react-icons/ri";
 import { ImFacebook } from "react-icons/im";
 import { BsTwitter } from "react-icons/bs";
+import Login from './Login';
 
 // import Footer from './Footer';
 
@@ -27,9 +29,11 @@ export const Subscribe = () => {
 
   const [isPremium, setPremium] = useState(false);
 
-  const [button,setButton] = useState(false);
+  const [button, setButton] = useState(false);
 
-  const[isSuper,setSuper] = useState(true);
+  const [isSuper, setSuper] = useState(true);
+
+  const navigate = useNavigate();
 
   const Super = () => {
     setPremium(false);
@@ -42,7 +46,7 @@ export const Subscribe = () => {
     setSuper(false);
   }
 
-  const Premium2=()=>{
+  const Premium2 = () => {
     setPremium(true);
     setButton(true);
     setSuper(false);
@@ -64,9 +68,9 @@ export const Subscribe = () => {
           {/* <button >abc</button> */}
 
           {/* left box */}
-          <Box mx={'10'} width={'50%'} height={'112vh'}>
+          <Box width={'50%'} height={'100vh'}>
 
-            <Box className='carousel' height={'112vh'} zIndex={'0'}>
+            <Box className='carousel' height={'100vh'} zIndex={'0'}>
               <Slider />
             </Box>
 
@@ -78,6 +82,7 @@ export const Subscribe = () => {
                   fontSize={'4xl'}><RxCross2 ></RxCross2></Button>
                 <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1656431456/web-images/logo-d-plus.svg' width={'80px'} zIndex={'2'} />
               </Flex>
+
 
               <Box boxSize='250px' my={'8'} border={'2px'} borderColor={'white'}>
                 <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' zIndex={'2'} />
@@ -97,7 +102,7 @@ export const Subscribe = () => {
           </Box>
 
           {/* right box    bg={'rgb(14,16,20)'}  */}
-          <Box fontSize={'lg'} width={'50%'} mr={'12'}>
+          <Box fontSize={'lg'} width={'50%'} mr={'12'} >
             {/* login language buttons */}
             <Box display={'flex'} gap={'6'} justifyContent={'end'} my={'5'}>
               <Box bg={'rgb(34,35,38)'}>
@@ -116,9 +121,12 @@ export const Subscribe = () => {
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
             </Box>
 
+            {/* modal login  */}
+            
+
             {/* subscription plan */}
             <TableContainer>
-              <Table variant='unstyled' size={'md'} color={'white'}>
+              <Table variant='unstyled' size={'md'} color={'white'} my={"2%"}>
                 <Thead>
                   <Tr>
                     <Th>  </Th>
@@ -198,7 +206,7 @@ export const Subscribe = () => {
 
               <Button display={'block'} py={'12'} px={'16'} colorScheme='black' border={'2px'}
                 color={'rgb(225,230,240)'} variant='outline' borderColor={'rgb(37,40,51)'} onClick={Premium1}
-                _focus={{border:'2px' ,borderColor:'white'}}  className={!button ? 'after' : '' }>
+                _focus={{ border: '2px', borderColor: 'white' }} className={!button ? 'after' : ''}>
                 <Box mt={'-5'}>
                   <Text fontSize={'2xl'}>Premium</Text>
                   <Text fontSize={'2xl'}>₹1499/year</Text>
@@ -207,7 +215,7 @@ export const Subscribe = () => {
 
               <Button display={'block'} py={'12'} px={'16'} colorScheme='black' border={'2px'}
                 color={'rgb(225,230,240)'} variant='outline' borderColor={'rgb(37,40,51)'} onClick={Premium2}
-                _focus={{border:'2px' ,borderColor:'white'}}   className={button ? 'after' : ''}>
+                _focus={{ border: '2px', borderColor: 'white' }} className={button ? 'after' : ''}>
                 <Box mt={'-5'} >
                   <Text fontSize={'2xl'}>Premium</Text>
                   <Text fontSize={'2xl'}>₹299/month</Text>
@@ -222,6 +230,7 @@ export const Subscribe = () => {
                 color={'white'} width={'100%'}
                 className='shailesh'
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={()=>{navigate('/payment')}}
               ><Box>Continue with Premium </Box>
                 <Box mb={'-1.5'} ml={'2'}><RiArrowRightSLine /></Box>
               </Button>
@@ -231,7 +240,7 @@ export const Subscribe = () => {
         </Flex>
 
         {/* Footer */}
-       
+
 
       </Box>
     )
@@ -241,7 +250,7 @@ export const Subscribe = () => {
       <Box bg={"#0F1014"}>
         <Flex>
           {/* left box */}
-          <Box mx={'10'} width={'50%'} height={'100vh'}>
+          <Box  width={'50%'} height={'100vh'}>
 
             <Box className='carousel' height={'100vh'} zIndex={'0'}>
               <Slider />
@@ -289,7 +298,8 @@ export const Subscribe = () => {
 
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
-                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
+                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={() => { navigate('/login') }}>Login</Button>
             </Box>
 
             {/* subscription plan */}
@@ -364,7 +374,7 @@ export const Subscribe = () => {
             <Flex my={'6'} gap={'4'}>
               <Button display={'block'} py={'12'} px={'16'} colorScheme='black' border={'2px'}
                 color={'rgb(225,230,240)'} variant='outline' borderColor={'rgb(37,40,51)'} onClick={Super}
-                _focus={{border:'2px' ,borderColor:'white'}} className='after' id='a'>
+                _focus={{ border: '2px', borderColor: 'white' }} className='after' id='a'>
                 <Box mt={'-5'} >
                   <Text fontSize={'2xl'}>Super</Text>
                   <Text fontSize={'2xl'}>₹899/year</Text>
@@ -395,6 +405,7 @@ export const Subscribe = () => {
                 color={'white'} width={'100%'}
                 className='shailesh'
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={()=>{navigate('/payment')}}
               ><Box>Continue with Super </Box>
                 <Box mb={'-1.5'} ml={'2'}><RiArrowRightSLine /></Box>
               </Button>
@@ -406,7 +417,7 @@ export const Subscribe = () => {
 
 
         {/* Footer */}
-       
+
         {/* <Box><Footer/></Box> */}
 
 

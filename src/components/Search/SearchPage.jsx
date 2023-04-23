@@ -33,8 +33,7 @@ const SearchPage = () => {
     console.log(debouncedText)
   return (
     <>
-    <Navbar/>
-    <Box mt={30}>
+    <Box pt={"30"}>
       <InputGroup bg="#242832" color="#dbd9ce"  p={6} borderRadius={15} width="80%" m="auto">
           <Search2Icon bg='transparent' boxSize={8} m={2} />
           <Input

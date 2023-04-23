@@ -1,9 +1,12 @@
 import {useDisclosure,HStack,Text,Image,Modal,ModalFooter,Button,useToast,Box,ModalBody,ModalContent,ModalOverlay,ModalHeader,ModalCloseButton,FormControl,FormLabel,Input, VStack, AlertDialog} from "@chakra-ui/react"
 import React, { useState ,useRef, useEffect} from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function CustomModal({onClose,onOpen,isOpen,}) {
   const[name,setname]=useState("")
   const[state,sestate]=useState(true)
+
+  const navigate=useNavigate();
     const toastRef = useRef();
     let toast = useToast();
     const initialRef = React.useRef(null)
@@ -15,6 +18,7 @@ export default function CustomModal({onClose,onOpen,isOpen,}) {
         sestate(false)
       }
     },[name,state])
+
     
     return (
       <>
@@ -27,38 +31,7 @@ export default function CustomModal({onClose,onOpen,isOpen,}) {
           <ModalContent h="400px" backgroundColor="white" >
             <Text  m="5%" fontSize="15px">Cedit/Debit Card</Text>
             <ModalCloseButton />
-            {/* <ModalBody pb={6}> <FormControl mt={4}>
-                <FormLabel> Card Holder Name</FormLabel>
-                <Input placeholder='Name'  type="text"/>
-              </FormControl>
 
-
-              <FormControl>
-                <FormLabel>Enter Card Number</FormLabel>
-                <Input  type="number"  ref={initialRef} placeholder='Card Number' />
-              </FormControl>
-
-             
-
-
-
-              <HStack mt={4}>
-                
-              <FormControl >
-                <FormLabel>Expary </FormLabel>
-                <Input placeholder='MM/Y'  type="month-year"/>
-              </FormControl>
-              <FormControl>
-                <FormLabel>CVV </FormLabel>
-                <Input placeholder='CVV'  type="number"  minLength={3} maxLength={3}/>
-              </FormControl>
-                
-                 </HStack>
-            
-
-
-
-            </ModalBody> */}
             <ModalBody h="60%"  p="2%" m="2%"  box-shadow ="xs" >
                  <Box boxShadow='lg' p='5' rounded='md' bg='white' h="85%">
                     <Text  color="blue"  fontSize="13px">
@@ -101,17 +74,17 @@ export default function CustomModal({onClose,onOpen,isOpen,}) {
                  
               <Image mr="80px" width="50px" src="https://secure-media.hotstarext.com/web-assets/prod/images/DHLogo.svg"></Image>
                <Button colorScheme={state===false?"gray":"blue" }    mr={3} onClick={()=>{
+                navigate('/Payment_Otp')
                onClose()
                toastRef.current = toast({
                 position: "top",
 
                 title: " Your OTP is ",
-                description:
-                  "Your OTP is  8542",
+                description: '8542',
                 status: "success",
                 duration: 2000,
                 isClosable: true,
-
+                
               });
               }}> 
               
