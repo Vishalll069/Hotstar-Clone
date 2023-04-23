@@ -52,7 +52,7 @@ const Login = () => {
 
            {
             (!otp) &&  <Modal isOpen={true} onClose={onClose} size={'4xl'} >
-            <ModalOverlay />
+            <ModalOverlay bg={'black'}/>
             <ModalContent bg={'rgb(22,24,31)'}>
                 <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />
                 <ModalBody >
