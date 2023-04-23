@@ -13,7 +13,7 @@ function App() {
       {/* <Home/> */}
        Disney + HotStar......
        {/* <SearchPage /> */}
-       <Subscribe/>
+       {/* <Subscribe/> */}
     </div>
   )
 }
