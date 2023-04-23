@@ -1,6 +1,6 @@
 import {useDisclosure,HStack,Text,Image,Modal,ModalFooter,Button,useToast,Box,ModalBody,ModalContent,ModalOverlay,ModalHeader,ModalCloseButton,FormControl,FormLabel,Input, VStack, AlertDialog} from "@chakra-ui/react"
 import React, { useState ,useRef, useEffect} from "react"
-import { BackdropExample } from "./Otp";
+
 export default function CustomModal({onClose,onOpen,isOpen,}) {
   const[name,setname]=useState("")
   const[state,sestate]=useState(true)
