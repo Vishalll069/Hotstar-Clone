@@ -11,6 +11,7 @@ import {useDebounce} from 'use-debounce'
 import { SearchBody } from "./searchBody";
 import { useDispatch } from "react-redux";
 import { searchAction } from "../../actions/searchPage/searchAction";
+import { Navbar } from "../Navbar";
 // import { BsSearch } from "react-icons/bs";
 
 const SearchPage = () => {
@@ -32,6 +33,7 @@ const SearchPage = () => {
     console.log(debouncedText)
   return (
     <>
+    <Navbar/>
     <Box mt={30}>
       <InputGroup bg="#242832" color="#dbd9ce"  p={6} borderRadius={15} width="80%" m="auto">
           <Search2Icon bg='transparent' boxSize={8} m={2} />
