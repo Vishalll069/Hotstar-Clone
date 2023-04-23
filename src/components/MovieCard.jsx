@@ -12,12 +12,15 @@ export const MovieCard = ({movie}) => {
     <Box
             height={250}
             borderRadius={20}
+            // zIndex={100}
             bgImage={`url(https://image.tmdb.org/t/p/w1280/${movie.poster_path})`}
             bgSize={"contain"}
             bgPosition="center"
             bgRepeat="no-repeat"
             position="relative"
             cursor="pointer"
+            minW={"11%"}
+            
             style={{ transition: "all 300ms ease " }}
             _hover={{ transform: "scale(1.5)", zIndex: "2", backgroundImage:'none' }}
           >
