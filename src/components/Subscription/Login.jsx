@@ -51,8 +51,8 @@ const Login = ({showlogin}) => {
            }    
 
            {
-            (!otp) &&  <Modal isOpen={showlogin} onClose={onClose} size={'4xl'} >
-            <ModalOverlay />
+            (!otp) &&  <Modal isOpen={true} onClose={onClose} size={'4xl'} >
+            <ModalOverlay bg={'black'}/>
             <ModalContent bg={'rgb(22,24,31)'}>
                 <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />
                 <ModalBody >

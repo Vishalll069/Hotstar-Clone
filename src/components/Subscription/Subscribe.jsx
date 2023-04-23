@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import './Subscribe.css'
 import Slider from './Slider';
 import { useState } from 'react';
@@ -28,10 +29,11 @@ export const Subscribe = () => {
 
   const [isPremium, setPremium] = useState(false);
 
-  const [button,setButton] = useState(false);
+  const [button, setButton] = useState(false);
 
-  const[isSuper,setSuper] = useState(true);
-  const[showlogin,setshowlogin]= useState(false)
+  const [isSuper, setSuper] = useState(true);
+
+  const navigate = useNavigate();
 
   const Super = () => {
     setPremium(false);
@@ -44,7 +46,7 @@ export const Subscribe = () => {
     setSuper(false);
   }
 
-  const Premium2=()=>{
+  const Premium2 = () => {
     setPremium(true);
     setButton(true);
     setSuper(false);
@@ -81,6 +83,7 @@ export const Subscribe = () => {
                 <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1656431456/web-images/logo-d-plus.svg' width={'80px'} zIndex={'2'} />
               </Flex>
 
+
               <Box boxSize='250px' my={'8'} border={'2px'} borderColor={'white'}>
                 <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' zIndex={'2'} />
               </Box>
@@ -115,9 +118,7 @@ export const Subscribe = () => {
 
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
-                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
-                onClick={()=>setshowlogin(!showlogin)}
-                >Login</Button>
+                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
             </Box>
 
             {/* modal login  */}
@@ -205,7 +206,7 @@ export const Subscribe = () => {
 
               <Button display={'block'} py={'12'} px={'16'} colorScheme='black' border={'2px'}
                 color={'rgb(225,230,240)'} variant='outline' borderColor={'rgb(37,40,51)'} onClick={Premium1}
-                _focus={{border:'2px' ,borderColor:'white'}}  className={!button ? 'after' : '' }>
+                _focus={{ border: '2px', borderColor: 'white' }} className={!button ? 'after' : ''}>
                 <Box mt={'-5'}>
                   <Text fontSize={'2xl'}>Premium</Text>
                   <Text fontSize={'2xl'}>₹1499/year</Text>
@@ -214,7 +215,7 @@ export const Subscribe = () => {
 
               <Button display={'block'} py={'12'} px={'16'} colorScheme='black' border={'2px'}
                 color={'rgb(225,230,240)'} variant='outline' borderColor={'rgb(37,40,51)'} onClick={Premium2}
-                _focus={{border:'2px' ,borderColor:'white'}}   className={button ? 'after' : ''}>
+                _focus={{ border: '2px', borderColor: 'white' }} className={button ? 'after' : ''}>
                 <Box mt={'-5'} >
                   <Text fontSize={'2xl'}>Premium</Text>
                   <Text fontSize={'2xl'}>₹299/month</Text>
@@ -229,6 +230,7 @@ export const Subscribe = () => {
                 color={'white'} width={'100%'}
                 className='shailesh'
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={()=>{navigate('/payment')}}
               ><Box>Continue with Premium </Box>
                 <Box mb={'-1.5'} ml={'2'}><RiArrowRightSLine /></Box>
               </Button>
@@ -238,7 +240,7 @@ export const Subscribe = () => {
         </Flex>
 
         {/* Footer */}
-       
+
 
       </Box>
     )
@@ -296,7 +298,8 @@ export const Subscribe = () => {
 
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
-                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
+                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={() => { navigate('/login') }}>Login</Button>
             </Box>
 
             {/* subscription plan */}
@@ -371,7 +374,7 @@ export const Subscribe = () => {
             <Flex my={'6'} gap={'4'}>
               <Button display={'block'} py={'12'} px={'16'} colorScheme='black' border={'2px'}
                 color={'rgb(225,230,240)'} variant='outline' borderColor={'rgb(37,40,51)'} onClick={Super}
-                _focus={{border:'2px' ,borderColor:'white'}} className='after' id='a'>
+                _focus={{ border: '2px', borderColor: 'white' }} className='after' id='a'>
                 <Box mt={'-5'} >
                   <Text fontSize={'2xl'}>Super</Text>
                   <Text fontSize={'2xl'}>₹899/year</Text>
@@ -402,6 +405,7 @@ export const Subscribe = () => {
                 color={'white'} width={'100%'}
                 className='shailesh'
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
+                onClick={()=>{navigate('/payment')}}
               ><Box>Continue with Super </Box>
                 <Box mb={'-1.5'} ml={'2'}><RiArrowRightSLine /></Box>
               </Button>
@@ -413,7 +417,7 @@ export const Subscribe = () => {
 
 
         {/* Footer */}
-       
+
         {/* <Box><Footer/></Box> */}
 
 

@@ -4,7 +4,7 @@ import './Subscribe.css';
 import { RiArrowRightSLine } from "react-icons/ri";
 import { BiMessage } from "react-icons/bi";
 import { FiPhoneCall } from "react-icons/fi";
-
+import { useNavigate } from 'react-router-dom';
 
 
 import {
@@ -27,6 +27,7 @@ const OTP = ({number,pin}) => {
     const [input,setInput]=useState("");
     const [checkOTP,setCheck]=useState(false); 
     const toast=useToast();
+    const navigate=useNavigate();
 
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -55,7 +56,7 @@ const OTP = ({number,pin}) => {
 
 
             <Modal isOpen={true} onClose={onClose} size={'4xl'} >
-                <ModalOverlay />
+                <ModalOverlay bg={'black'}/>
                 <ModalContent bg={'rgb(22,24,31)'}>
                     <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />
                     <ModalBody>
@@ -143,7 +144,7 @@ const OTP = ({number,pin}) => {
                                     color={'white'} width={'80%'}
                                     className='shailesh'
                                     _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
-                                    
+                                    onClick={()=>{navigate('/payment')}}
                                 ><Box>Continue </Box>
                                     <Box ml={'3'}><RiArrowRightSLine /></Box>
                                 </Button>
