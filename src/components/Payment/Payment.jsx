@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import {Box,Text,Image,HStack, VStack, Center} from "@chakra-ui/react"
-import ReturnFocus from './modal'
+
 import { useDisclosure } from '@chakra-ui/react'
-import CustomModal from './customModal'
+
 import CustomModal from './Model'
 function Payment2(props) {
     
