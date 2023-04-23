@@ -188,10 +188,10 @@ export const Genre = () => {
     const dispatch = useDispatch();
     const {genreRes} = useSelector((store)=> store.SearchReducer)
     
-    // const {id, genre} = useParams();
+     const {id, gname} = useParams();
 
     useEffect(()=>{
-        dispatch(getByGenre(27))
+        dispatch(getByGenre(id))
     },[])
 
     console.log("Genre", genreRes);
@@ -200,7 +200,7 @@ export const Genre = () => {
     <Box w={'80%'} m={'auto'} >
         <Center mt={'2rem'}>
       <Heading  mb="2rem" size="lg" color={"#c7ddea"}>
-        Romance
+        {gname}
       </Heading>
 
         </Center>

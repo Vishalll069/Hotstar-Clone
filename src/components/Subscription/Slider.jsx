@@ -7,8 +7,8 @@ import {
 
 const Slider = () => {
   return (
-   <Box className='main'>
-     <Box className='container' height={'112vh'}>
+   <Box className='main' >
+     <Box className='container' height={'100vh'} >
                 <Box className='slider'>
                   <Box className='slide'>
                     <Image src='https://c4.wallpaperflare.com/wallpaper/212/657/279/the-avengers-avengers-endgame-ant-man-avengers-endgame-black-widow-hd-wallpaper-preview.jpg' />

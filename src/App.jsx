@@ -8,19 +8,22 @@ import { Navbar } from './components/Navbar'
 import { Subscribe } from './components/Subscription/Subscribe'
 import { Genre } from './components/Genre'
 import { Allroute } from './Routes/Allroute'
+import Footer from './components/Subscription/Footer'
 
 
 function App() {
 
   return (
-    <div className="App">
-      <Navbar/>
+    <div className="App" style={{backgroundColor:"#0F1014"}}>
+      {/* <Navbar/> */}
       <Allroute/>
+      <Footer/>
       {/* <Videoplayer/> */}
       
       {/* <Home/> */}
       
        Disney + HotStar......
+       {/* <SearchPage /> */}
     </div>
   )
 }
