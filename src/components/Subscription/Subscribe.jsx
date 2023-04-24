@@ -22,10 +22,12 @@ import { RiArrowRightSLine } from "react-icons/ri";
 import { ImFacebook } from "react-icons/im";
 import { BsTwitter } from "react-icons/bs";
 import Login from './Login';
+import { useSelector } from 'react-redux';
 
 // import Footer from './Footer';
 
 export const Subscribe = () => {
+  const {islog} = useSelector((state)=>state.LoginReducer)
 
   const [isPremium, setPremium] = useState(false);
 
@@ -119,7 +121,8 @@ export const Subscribe = () => {
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
               onClick={() => { navigate('/login') }}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
-                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
+                _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>
+                  {islog?"Logout":"Login"}</Button>
             </Box>
 
             {/* modal login  */}
@@ -300,7 +303,8 @@ export const Subscribe = () => {
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
-                onClick={() => { navigate('/login') }}>Login</Button>
+                onClick={() => { navigate('/login') }}>
+                  {islog?"Logout":"Login"}</Button>
             </Box>
 
             {/* subscription plan */}

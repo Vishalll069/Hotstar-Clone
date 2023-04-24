@@ -1,7 +1,8 @@
-import { LOGIN_SUCCESS } from "../constants/LoginTypes";
+import { LOGIN_SUCCESS ,LOGED_IN} from "../constants/LoginTypes";
 
 const initialState ={
     isSubs : false,
+    islog :false
 }
 
 
@@ -10,6 +11,9 @@ const LoginReducer =(state= initialState, action)=>{
     switch(type){
         case LOGIN_SUCCESS:
             return {...state, isSubs:payload};
+
+        case LOGED_IN:
+            return {...state, islog:payload};
 
         default:
             return state;

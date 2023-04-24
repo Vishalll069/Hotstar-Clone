@@ -1,9 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 export const Privateroute = ({children}) => {
-    let sub = true;
-  if(sub){
+    let {isSubs} = useSelector((state)=>state.LoginReducer)
+  if(isSubs){
     return children
 
   }

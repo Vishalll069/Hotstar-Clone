@@ -22,6 +22,7 @@ export const Videoplayer = () => {
     let base = "https://image.tmdb.org/t/p/original"
 
     let [url1, seturl] = useState("")
+    let {isSubs} =useSelector((state)=>state.LoginReducer)
     const [item, setitem] = useState(null)
     const location = useLocation()
     console.log(PopMovie)
@@ -119,8 +120,10 @@ export const Videoplayer = () => {
                             <Box mt={"80px"} >
                                 <Link to={`/singleplayer/${item.original_title}`}>
                                 <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}>
-                                <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />
-                                     Subscribe to Watch </Button></Link>
+                                <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />{isSubs?"Watch Now":" Subscribe to Watch "
+                                    }
+                                     </Button></Link>
+                                    
                                 <Button colorScheme='whiteAlpha' size={"lg"} fontSize={"3xl"} ml={"20px"}><GiSpiderWeb /></Button>
                             </Box>
                         </Box>

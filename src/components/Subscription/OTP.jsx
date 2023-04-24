@@ -21,6 +21,8 @@ import {
     ModalBody,
     ModalCloseButton,
 } from '@chakra-ui/react'
+import { useDispatch } from 'react-redux';
+import { LOGED_IN } from '../../constants/LoginTypes';
 
 const OTP = ({number,pin}) => {
 
@@ -38,6 +40,15 @@ const OTP = ({number,pin}) => {
             setCheck(true);
         }
     },[input]);
+    let dispatch =useDispatch()
+    const handlelogin=()=>{
+        dispatch({
+            type:LOGED_IN,
+            payload:true
+        })
+        navigate('/subscribepage')
+        
+    }
 
     useEffect(()=>{
         toast({
@@ -144,7 +155,7 @@ const OTP = ({number,pin}) => {
                                     color={'white'} width={'80%'}
                                     className='shailesh'
                                     _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
-                                    onClick={()=>{navigate('/subscribepage')}}
+                                    onClick={handlelogin}
                                 ><Box>Continue </Box>
                                     <Box ml={'3'}><RiArrowRightSLine /></Box>
                                 </Button>
