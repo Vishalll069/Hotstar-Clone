@@ -5,18 +5,22 @@ import { BiMovie } from "react-icons/bi";
 import { CiBasketball } from "react-icons/ci";
 import { MdOutlineComputer,MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { CgProfile, CgHome } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 // import {IoIosArrowForward} from '@chakra-ui/icons'
 
 import React from "react";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+
+  const navigate = useNavigate();
+
   return (
-    <Box position={"fixed"} zIndex={10}>
+    <Box position={"fixed"} zIndex={10} display={["none","none","none","block"]}>
       <Box  m={"2rem"}>
-        <Image src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" />
+        <Image onClick={()=>{navigate('/')}} src="https://img.hotstar.com/image/upload/v1656431456/web-images/logo-d-plus.svg" />
         <Box cursor={'pointer'}>
-          <Flex alignItems={'center'} ml={'-10px'} bg={'#27221f'} p={1.5} mt={'10px'} borderRadius={'20px'} color={'#9d8b5b'} fontWeight={'640'} >Subscribe<MdOutlineKeyboardArrowRight style={{backgroundColor:'transparent',fontSize:'15px', marginLeft:'2px'}} /></Flex>
+          <Flex onClick={()=>{navigate('/subscribepage')}} alignItems={'center'} ml={'-10px'} bg={'#27221f'} p={1.5} mt={'10px'} borderRadius={'20px'} color={'#9d8b5b'} fontWeight={'640'} >Subscribe<MdOutlineKeyboardArrowRight style={{backgroundColor:'transparent',fontSize:'15px', marginLeft:'2px'}} /></Flex>
         </Box>
       </Box>
 

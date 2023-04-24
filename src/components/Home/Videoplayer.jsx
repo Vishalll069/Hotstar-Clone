@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player/youtube'
 import { Link, useLocation } from "react-router-dom"
 import movieTrailer from "movie-trailer"
+import { TriangleUpIcon } from '@chakra-ui/icons';
 
 import { AspectRatio, Box, Image, Flex, HStack, Heading, Text, Button } from "@chakra-ui/react"
 
@@ -117,7 +118,9 @@ export const Videoplayer = () => {
                             </Box>
                             <Box mt={"80px"} >
                                 <Link to={`/singleplayer/${item.original_title}`}>
-                                <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}> Subscribe to Watch </Button></Link>
+                                <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}>
+                                <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />
+                                     Subscribe to Watch </Button></Link>
                                 <Button colorScheme='whiteAlpha' size={"lg"} fontSize={"3xl"} ml={"20px"}><GiSpiderWeb /></Button>
                             </Box>
                         </Box>

@@ -7,7 +7,7 @@ import {
 
 const Carousal = () => {
   return (
-    <Box className='main' width={'400px'} zIndex={'1'} bg={'black'}>
+    <Box className='main' zIndex={'1'} bg={'black'}>
      <Box className='container'>
                 <Box className='slider'>
                   <Box className='slide'>

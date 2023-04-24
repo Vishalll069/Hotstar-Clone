@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useRef} from 'react'
 import { AspectRatio, Box, Image, Flex, HStack, Heading, Text, Button } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux"
 import { ActionCalls } from "../../actions/Action"
@@ -9,6 +9,9 @@ import { GiThorHammer, GiSpiderWeb, GiAlarmClock } from "react-icons/gi"
 import { Link } from 'react-router-dom';
 import { Genrebox } from './Genrebox';
 import { Navbar } from '../Navbar';
+import { Navbar2 } from './Navbar2';
+import "./Home.css"
+import { TriangleUpIcon } from '@chakra-ui/icons';
 
 
 
@@ -26,6 +29,7 @@ export const Home = () => {
     const ComingShow = useSelector((state) => state.Moviereducer.upcomingShow)
 
     const [opacity1, setOpacity] = React.useState(1);
+    const videoRef = useRef();
 
     function handleScroll() {
         const currentScrollPos = window.pageYOffset;
@@ -35,32 +39,36 @@ export const Home = () => {
         setOpacity(opacity);
     }
 
-    
-    const [mainvideo,setvideo]=useState(vid)
-    
-    let bunty ="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+
+    const [mainvideo, setvideo] = useState(vid)
+
+    let bunty = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
     // let  ="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
-    
+
     console.log(mainvideo)
-    const handlevideo=(e)=>{
+    useEffect(()=>{
+        videoRef.current?.load();
+
+    },[mainvideo])
+    const handlevideo = (e) => {
         console.log(e)
-        if(e%2!=0){
+        if (e % 2 != 0) {
             setvideo(bunty)
-            
+
         }
-        else{
+        else {
             setvideo(vid)
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         window.addEventListener('scroll', handleScroll)
 
         return () => {
             window.removeEventListener('scroll', handleScroll)
         }
 
-    },[])
+    }, [])
 
 
 
@@ -68,55 +76,58 @@ export const Home = () => {
     let dispatch = useDispatch()
     useEffect(() => {
         dispatch(ActionCalls());
-       
-       
+
+
 
     }, [])
     return (
         <Box bg={"#0F1014"}>
-            <Navbar/>
+            <Navbar />
+            <Navbar2/>
+            <Box display={["none","none","none","inline"]}>
 
-            <Flex m={"0 4% 2% 8%"} pt={"2%"} >
-                <Box w={"40%"}>
-                    <Image src='https://shifu.hotstarext.com/SOURCE/VOD/cd-2023-04-12/ssbokvsr_deskXbb-a7da544a-d099-4420-9533-a6be47961dd4.jpg' />
+                <Flex m={"0 4% 2% 8%"} pt={"2%"}  >
+                    <Box w={"40%"}>
+                        <Image src='https://shifu.hotstarext.com/SOURCE/VOD/cd-2023-04-12/ssbokvsr_deskXbb-a7da544a-d099-4420-9533-a6be47961dd4.jpg' />
 
-                </Box>
-                
-                <Box p={"24px"} w={"50%"} borderEndRadius={"25px"} color={"white"} 
-                  bgGradient='linear(to-r,#0F1014,#16181F)'>
-                    <HStack p>
-                        <Box>
-                            <Image src='https://brand-img1.hotstarext.com/image/upload/v1585728139/Disnet%20Plus%20Hotstar%20Logo/D_Hotstar_logo_Dark_BG_120x120.png' h={'48px'} w="48px" />
+                    </Box>
 
-                        </Box>
-                        <Box>
-                            <Heading size={"md"}>
-                                Disney + Hoster
-                            </Heading>
-                            <Text>
-                                Binge-worthy watchlist
+                    <Box p={"24px"} w={"50%"} borderEndRadius={"25px"} color={"white"}
+                        bgGradient='linear(to-r,#0F1014,#0F1014,#16181F)'>
+                        <HStack p>
+                            <Box>
+                                <Image src='https://brand-img1.hotstarext.com/image/upload/v1585728139/Disnet%20Plus%20Hotstar%20Logo/D_Hotstar_logo_Dark_BG_120x120.png' h={'48px'} w="48px" />
 
+                            </Box>
+                            <Box>
+                                <Heading size={"md"}>
+                                    Disney + Hoster
+                                </Heading>
+                                <Text>
+                                    Binge-worthy watchlist
+
+                                </Text>
+
+                            </Box>
+
+                        </HStack>
+                        <Box mt="12px" w={"63%"} mb={"12px"}>
+
+                            <Text fontSize={"lg"}>
+                                Your one-stop destination for Comedy, Drama, Thrillers & More!
                             </Text>
-
                         </Box>
 
-                    </HStack>
-                    <Box mt="12px" w={"63%"} mb={"12px"}>
+                        <Box>
 
-                        <Text fontSize={"lg"}>
-                            Your one-stop destination for Comedy, Drama, Thrillers & More!
-                        </Text>
+                            <Link to='/subscribepage'>
+                                <Button size={"lg"} colorScheme={"whiteAlpha"} w={"40%"}>Subscribe</Button>
+                            </Link>
+                        </Box>
+
                     </Box>
-
-                    <Box>
-
-                        <Link to='/subscribepage'>
-                        <Button size={"lg"} colorScheme={"whiteAlpha"}  w={"40%"}>Subscribe</Button>
-                        </Link>
-                    </Box>
-
-                </Box>
-            </Flex>
+                </Flex>
+            </Box>
 
             {/* video div start from here */}
 
@@ -130,9 +141,9 @@ export const Home = () => {
 
 
                     {/* <YouTube videoId ="-xt1y8Ldsos" opts={opts}/> */}
-                    
-                    <video autoPlay muted loop style={{ objectFit: "cover", width: "100%", height: "100vh" }}>
-                    
+
+                    <video ref={videoRef} autoPlay muted loop style={{ objectFit: "cover", width: "100%", height: "100vh" }}>
+
                         <source src={mainvideo} />
                         Your browser does not support HTML5 video.
                     </video>
@@ -141,7 +152,7 @@ export const Home = () => {
             </Box>
 
             {/* title detail box over video  */}
-            <Box zIndex={4} position={"relative"} marginTop={"-35%"} ml={"8%"}>
+            <Box zIndex={4} position={"relative"} marginTop={"-35%"} ml={["2%","2%","4%","8%"]}>
                 <Flex>
 
 
@@ -149,42 +160,54 @@ export const Home = () => {
 
                     <Box color={"white"} mb={"5%"}>
                         <Box pt={"1%"} >
-                            <Heading fontSize={"6xl"} color="goldenrod">
+                            {mainvideo==bunty?<Heading>Big Buck Bunny</Heading>:
+                            <Heading fontSize={["3xl","3xl","3xl","6xl"]} color="goldenrod">
+                                
                                 Avengers
                             </Heading>
+                            }
                         </Box>
-                        <Box ml={"15px"}>
-                            <Flex><GiSpiderWeb size={"35px"} color='silver' />
-                                <Heading color={"silver"} >
+                        
+                        <Box ml={"15px"}>{mainvideo==bunty?null:
+                            <Flex><GiSpiderWeb  color='silver' className='icons' />
+                                <Heading color={"silver"} fontSize={["lg","lg","lg","3xl"]}>
                                     Reunite
                                 </Heading>
 
 
-                                <GiThorHammer size={"35px"} color='silver' />
+                                <GiThorHammer  color='silver' className='icons' />
 
 
                             </Flex>
+                        }
 
                         </Box>
                         <Box pt={"3"} fontWeight={"bold"}>
                             <Flex mb={'10px'}>
 
-                                <Text> Jan 2023 2h 30m </Text><GiAlarmClock size={"20px"} />
+                                <Text fontSize={["2xs","2xs","md","lg"]}> Jan 2023 2h 30m </Text><GiAlarmClock size={"20px"} />
                             </Flex>
-                            <Text> Action| Demons| Horror| School | Supernatural</Text>
+                            {mainvideo==bunty?<Text fontSize={["2xs","2xs","md","lg"]}> Comedy | Animation | Short | Kids</Text>:
+                            <Text fontSize={["2xs","2xs","md","lg"]}> Action| Demons| Horror| School | Supernatural</Text>
+                            }
                         </Box>
-                        <Box w={"40%"} pt={"1%"} mt={"10px"}>
-                            <Text lineHeight={'1.6em'} opacity={"0.9"} fontSize={"lg"} >
+                        <Box w={["80%","60%","60%","43%"]} pt={"1%"} mt={"10px"} overflow={"hidden"}>
+                        {mainvideo==bunty? <Text lineHeight={'1.6em'} opacity={"0.9"} fontSize={["2xs","sm","md","lg"]} >
+                        In the thick and undisturbed forest, sparkling spring has finally arrived, and all creatures, big or small, enjoy life. However, Big Buck Bunny--an enormous, fluffy, and utterly adorable rabbit--is facing a crisis: the ruthless, loud, bullying gang of a flying squirrel is heartlessly harassing him, determined to squash his happiness. Now, this means war. But who will win?</Text>
+                            :
+                            <Text lineHeight={'1.6em'} opacity={"0.9"} fontSize={["2xs","sm","md","lg"]} >
+                                
                                 Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for....
                             </Text>
+                                }
                         </Box>
                         <Box mt={"80px"} >
-                            <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}>Watch Now </Button>
-                            <Button colorScheme='whiteAlpha' size={"lg"} fontSize={"3xl"} ml={"20px"}><GiSpiderWeb /></Button>
+                            <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}> <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />Watch Now </Button>
+                            <Button colorScheme='whiteAlpha' size={"lg"} fontSize={["sm","md","2xl","3xl"]} ml={"20px"}><GiSpiderWeb /></Button>
                         </Box>
                     </Box>
 
-                    <Box w={"50%"} mt={"28%"} p={"1%"} mr={"90px"}>
+                    <Box w={"50%"} mt={"28%"} p={"1%"} mr={"90px"} display={["none","none","none","inline"]}>
                         <Flex
                             overflowX={"scroll"}
                             gap={"7px"}
@@ -200,9 +223,11 @@ export const Home = () => {
                                         minW={'80px'}
                                         h={'45px'}
                                         border={"1px solid white"}
+                                        borderRadius={"3px"}
                                         transition={"0.3s"}
                                         _hover={{ transform: "translate(0,-10px)" }}
-                                        onClick={()=>handlevideo(i+1)}
+                                        onClick={() => handlevideo(i + 1)}
+                                        cursor={"pointer"}
                                     >
                                         <Image
                                             src={base + ele.poster_path}
@@ -224,7 +249,7 @@ export const Home = () => {
                 {/* All cards(poster) div start from here */}
 
                 <Box mr={"0px"} >
-                    <Box  pl={"0"} color={"white"} >
+                    <Box pl={"0"} color={"white"} >
 
                         <Heading fontSize={"2xl"}>
                             Popular-Movies
@@ -233,12 +258,12 @@ export const Home = () => {
 
                     <Flex overflowX={"scroll"} gap={"13px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} pl={"0"} maxW={"100%"}>
                         {PopMovie?.map((ele, i) => {
-                            return <Link key={i + 1} style={{ minWidth: "13%" }} to="/video" state={ele} >
-                                <Box _hover={{ transform: "scale(1.2)",border:"1px solid white" }} borderRadius={"10px"}  style={{ transition: "all 300ms ease " }}>
-                                
-                                <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"}  objectFit={"cover"}
-                                            objectPosition={"center top"}/>
-                            </Box>
+                            return <Link key={i + 1} className='link2' to="/video" state={ele} >
+                                <Box _hover={{ transform: "scale(1.2)", border: "1px solid white" }} borderRadius={"10px"} style={{ transition: "all 300ms ease " }}>
+
+                                    <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} objectFit={"cover"}
+                                        objectPosition={"center top"} />
+                                </Box>
                             </Link>
                         })}
                     </Flex>
@@ -252,28 +277,28 @@ export const Home = () => {
             <Box bg={"blackAlpha.300"} w={"20%"} h={"300px"} position={"relative"}> div 5</Box> */}
 
                 <Box mr={"0"}  >
-                    <Box  pl={"0"} color={"white"}>
+                    <Box pl={"0"} color={"white"}>
 
                         <Heading fontSize={"2xl"}>
                             Trending-Movies
                         </Heading>
                     </Box>
 
-                    <Flex overflowX={"scroll"} gap={"13px"} sx={{ '::-webkit-scrollbar': { display: 'none' } } } p={"2%"} pl={"0"} maxW={"100%"} h={"100%"}>
+                    <Flex overflowX={"scroll"} gap={"13px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} pl={"0"} maxW={"100%"} h={"100%"}>
                         {TopMovie?.map((ele, i) => {
-                            return<Link key={i + 1} style={{ minWidth: "13%" }} to="/video" state={ele} >
-                            <Box _hover={{ transform: "scale(1.2)",border:"1px solid white" }} borderRadius={"10px"}  style={{ transition: "all 300ms ease " }}>
-                            
-                            <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
-                                        objectPosition={"center top"}/>
-                        </Box>
-                        </Link>
+                            return <Link key={i + 1} className='link2' to="/video" state={ele} >
+                                <Box _hover={{ transform: "scale(1.2)", border: "1px solid white" }} borderRadius={"10px"} style={{ transition: "all 300ms ease " }}>
+
+                                    <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
+                                        objectPosition={"center top"} />
+                                </Box>
+                            </Link>
                         })}
                     </Flex>
                 </Box>
 
 
-                <Box  mr={"0"}>
+                <Box mr={"0"}>
                     <Box color={"white"}>
 
                         <Heading fontSize={"2xl"}>
@@ -283,41 +308,41 @@ export const Home = () => {
 
                     <Flex overflowX={"auto"} gap={"13px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} h={"100%"}>
                         {ComingMovie?.map((ele, i) => {
-                            return<Link key={i + 1} style={{ minWidth: "13%" }} to="/video" state={ele} >
-                            <Box _hover={{ transform: "scale(1.2)",border:"1px solid white" }} borderRadius={"10px"}  style={{ transition: "all 300ms ease " }} >
-                            
-                            <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
-                                        objectPosition={"center top"}/>
-                        </Box>
-                        </Link>
+                            return <Link key={i + 1} className='link2' to="/video" state={ele} >
+                                <Box _hover={{ transform: "scale(1.2)", border: "1px solid white" }} borderRadius={"10px"} style={{ transition: "all 300ms ease " }} >
+
+                                    <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
+                                        objectPosition={"center top"} />
+                                </Box>
+                            </Link>
                         })}
                     </Flex>
                 </Box>
 
-                <Box  mr={"0"}>
-                    <Box  color={"white"}>
+                <Box mr={"0"}>
+                    <Box color={"white"}>
 
                         <Heading fontSize={"2xl"}>
                             Popular-Shows
                         </Heading>
                     </Box>
 
-                    <Flex overflowX={"auto"} gap={"13px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} pl={"0"}>
+                    <Flex overflowX={"auto"} gap={"13px"}  sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} pl={"0"}>
                         {PopShow?.map((ele, i) => {
-                            return <Link key={i + 1} style={{ minWidth: "13%" }} to="/video" state={ele} >
-                            <Box _hover={{ transform: "scale(1.2)",border:"1px solid white" }} borderRadius={"10px"}  style={{ transition: "all 300ms ease " }}>
-                            
-                            <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
-                                        objectPosition={"center top"}/>
-                        </Box>
-                        </Link>
+                            return <Link key={i + 1} className='link2' to="/video" state={ele} >
+                                <Box _hover={{ transform: "scale(1.2)", border: "1px solid white" }} borderRadius={"10px"} style={{ transition: "all 300ms ease " }}>
+
+                                    <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
+                                        objectPosition={"center top"} />
+                                </Box>
+                            </Link>
                         })}
                     </Flex>
                 </Box>
-                <Genrebox/>
+                <Genrebox />
 
                 <Box mr={"0"} >
-                    <Box  color={"white"}>
+                    <Box color={"white"}>
 
                         <Heading fontSize={"2xl"}>
                             Trending-Show's
@@ -326,18 +351,18 @@ export const Home = () => {
 
                     <Flex overflowX={"auto"} gap={"10px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} pl={"0"}>
                         {TopShow?.map((ele, i) => {
-                            return <Link key={i + 1} style={{ minWidth: "13%" }} to="/video" state={ele} >
-                            <Box _hover={{ transform: "scale(1.2)",border:"1px solid white" }} borderRadius={"10px"}  style={{ transition: "all 300ms ease " }}>
-                            
-                            <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
-                                        objectPosition={"center top"}/>
-                        </Box>
-                        </Link>
+                            return <Link key={i + 1} className='link2' to="/video" state={ele} >
+                                <Box _hover={{ transform: "scale(1.2)", border: "1px solid white" }} borderRadius={"10px"} style={{ transition: "all 300ms ease " }}>
+
+                                    <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
+                                        objectPosition={"center top"} />
+                                </Box>
+                            </Link>
                         })}
                     </Flex>
                 </Box>
 
-                <Box  mr={"0"} >
+                <Box mr={"0"} >
                     <Box color={"white"}>
 
                         <Heading fontSize={"2xl"}>
@@ -347,19 +372,19 @@ export const Home = () => {
 
                     <Flex overflowX={"auto"} gap={"10px"} sx={{ '::-webkit-scrollbar': { display: 'none' } }} p={"2%"} pl={"0"}>
                         {ComingShow?.map((ele, i) => {
-                            return<Link key={i + 1} style={{ minWidth: "13%" }} to="/video" state={ele} >
-                            <Box _hover={{ transform: "scale(1.2)",border:"1px solid white" }} borderRadius={"10px"}  style={{ transition: "all 300ms ease " }} >
-                            
-                            <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
-                                        objectPosition={"center top"}/>
-                        </Box>
-                        </Link>
+                            return <Link key={i + 1} className='link2' to="/video" state={ele} >
+                                <Box _hover={{ transform: "scale(1.2)", border: "1px solid white" }} borderRadius={"10px"} style={{ transition: "all 300ms ease " }} >
+
+                                    <Image src={base + ele.poster_path} borderRadius={"10px"} w={"100%"} h={"100%"} objectFit={"cover"}
+                                        objectPosition={"center top"} />
+                                </Box>
+                            </Link>
                         })}
                     </Flex>
                 </Box>
-               
+
             </Box>
-            
+
 
 
 
