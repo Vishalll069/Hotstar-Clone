@@ -56,7 +56,7 @@ const Login = ({showlogin}) => {
             <ModalContent bg={'rgb(22,24,31)'}>
                 <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />
                 <ModalBody >
-                    <Flex  justifyContent={'space-between'} color={'white'}>
+                    <Flex color={'white'}>
                         
                         {/* carousel */}
                         <Box position="relative">
