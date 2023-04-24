@@ -15,7 +15,7 @@
 
 .slider{
     display: block;
-    width: calc(250px * 18);
+    width: calc(250px * 3);
     /* width: 100%; */
     animation: scroll 20s linear infinite;
     /* background-color: red; */

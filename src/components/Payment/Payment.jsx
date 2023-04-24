@@ -47,7 +47,7 @@ function Payment2(props) {
           <>
           <Text m="5%" p={2}>CREDIT CARDS</Text>
           <HStack border="1px solid blue"  m="5%" p="0">
-          <Text p="3" m="0" color="blue" fontSize="12" fontWeight="bold"  mr="40px">
+          <Text cursor={'pointer'} p="3" m="0" color="blue" fontSize="12" fontWeight="bold"  mr="40px">
           ENTER CARD NUMBER
          </Text>
          <>  <Image w="10%" src="https://th.bing.com/th?id=OIP.xVREsbEnxpFwYsgl4hNO7QHaDA&w=350&h=142&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"></Image>
@@ -60,7 +60,7 @@ function Payment2(props) {
            <>
                <Text m="5%">DEBIT CARDS</Text>
                <HStack border="1px solid gray"  m="5%" p="0">
-                  <Text p="3" m="0" color="gray" fontSize="12" fontWeight="bold"  mr="40px">
+                  <Text cursor={'pointer'} p="3" m="0" color="gray" fontSize="12" fontWeight="bold"  mr="40px">
                      ENTER CARD NUMBER
                   </Text>
          <>  <Image w="10%" src="https://th.bing.com/th?id=OIP.xVREsbEnxpFwYsgl4hNO7QHaDA&w=350&h=142&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2"></Image>
