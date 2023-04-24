@@ -144,7 +144,7 @@ const OTP = ({number,pin}) => {
                                     color={'white'} width={'80%'}
                                     className='shailesh'
                                     _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}
-                                    onClick={()=>{navigate('/payment')}}
+                                    onClick={()=>{navigate('/subscribepage')}}
                                 ><Box>Continue </Box>
                                     <Box ml={'3'}><RiArrowRightSLine /></Box>
                                 </Button>
