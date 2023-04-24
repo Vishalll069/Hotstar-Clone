@@ -51,18 +51,18 @@ const Login = ({showlogin}) => {
            }    
 
            {
-            (!otp) &&  <Modal isOpen={true} onClose={onClose} size={'4xl'} >
+            (!otp) &&  <Modal isOpen={true} onClose={onClose} size={'5xl'} >
             <ModalOverlay bg={'black'}/>
-            <ModalContent bg={'rgb(22,24,31)'}>
-                <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />
+            <ModalContent   bg={'black'}>
+                <ModalCloseButton color={'white'} mr={4} zIndex={'12'} size={'lg'} />
                 <ModalBody >
-                    <Flex color={'white'}>
+                    <Flex bg={'blue'} width={'100%'} justifyContent={'center'} color={'white'}>
                         
                         {/* carousel */}
-                        <Box position="relative">
+                        <Box width={'50%'} >
                             <Box
                                 position="relative"
-                                zIndex="-1"
+                                zIndex="1"
                                 bg="black"
                             // p={4}
                             // borderRadius="md"
@@ -76,14 +76,14 @@ const Login = ({showlogin}) => {
                                 left="0"
                                 right="0"
                                 bottom="0"
-                                bgGradient="linear(to-l, rgb(22,24,31), transparent)"
+                                bgGradient="linear(to-l, black, transparent)"
                                 opacity="0.7"
                                 borderRadius="md"
                             />
                         </Box>
 
                         {/* input login */}
-                        <Box bg={'rgb(22,24,31)'} width={'50%'} zIndex={'10'}>
+                        <Box p={3} bg={'rgb(22,24,31)'} width={'50%'} zIndex={'10'}>
                             <Text as='h2' size='lg' my={'10'} fontWeight={'bold'}
                                 fontSize={'2xl'} ml={'10px'} >
                                 Log in or sign up to continue

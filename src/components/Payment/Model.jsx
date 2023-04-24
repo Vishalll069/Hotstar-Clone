@@ -37,7 +37,7 @@ export default function CustomModal({onClose,onOpen,isOpen,}) {
                     <Text  color="blue"  fontSize="13px">
                       CARD NUMBER
                     </Text>
-                    <Input  variant='flushed' placeholder="XXXXXXXXXXXXXXXX" >
+                    <Input required  variant='flushed' placeholder="XXXXXXXXXXXXXXXX" >
                     
                     </Input>
                     <HStack p="10%">

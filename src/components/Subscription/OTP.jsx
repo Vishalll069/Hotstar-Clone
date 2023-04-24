@@ -57,13 +57,13 @@ const OTP = ({number,pin}) => {
 
             <Modal isOpen={true} onClose={onClose} size={'4xl'} >
                 <ModalOverlay bg={'black'}/>
-                <ModalContent bg={'rgb(22,24,31)'}>
+                <ModalContent bg={'black'}>
                     <ModalCloseButton color={'white'} zIndex={'12'} size={'lg'} />
                     <ModalBody>
-                        <Flex justifyContent={'space-between'} color={'white'}>
+                        <Flex justifyContent={'center'} width={'100%'} color={'white'}>
 
                             {/* carousel */}
-                            <Box position="relative">
+                            <Box  width={'50%'}>
                                 <Box
                                     position="relative"
                                     zIndex="-1"

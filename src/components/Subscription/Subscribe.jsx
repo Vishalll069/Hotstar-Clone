@@ -74,21 +74,21 @@ export const Subscribe = () => {
               <Slider />
             </Box>
 
-            <Box className='leftA' zIndex={'2'} position={'absolute'} mt={'-112vh'}>
+            <Box className='leftA' zIndex={'2'} position={'absolute'} ml={'2rem'} mt={'-100vh'}>
 
 
               <Flex gap={'4'} my={'4'}>
                 <Button colorScheme={'black'} mt={'3'}
                   fontSize={'4xl'}><RxCross2 ></RxCross2></Button>
-                <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1656431456/web-images/logo-d-plus.svg' width={'80px'} zIndex={'2'} />
+                <Image onClick={()=>{navigate('/')}} cursor={'pointer'} src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1656431456/web-images/logo-d-plus.svg' width={'80px'} zIndex={'2'} />
               </Flex>
 
 
-              <Box boxSize='250px' my={'8'} border={'2px'} borderColor={'white'}>
+              {/* <Box boxSize='250px' my={'8'} border={'2px'} borderColor={'white'}>
                 <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' zIndex={'2'} />
-              </Box>
+              </Box> */}
 
-              <Box >
+              <Box mt={'3rem'}>
                 <Heading as='h2' size='xl' color={'white'} >
                   Subscribe now and start
                 </Heading>
@@ -257,20 +257,20 @@ export const Subscribe = () => {
               <Slider />
             </Box>
 
-            <Box className='leftA' zIndex={'2'} position={'absolute'} mt={'-112vh'}>
+            <Box className='leftA' zIndex={'2'} position={'absolute'} ml={'2rem'} mt={'-100vh'}>
 
 
-              <Flex gap={'4'} my={'4'}>
+              <Flex  gap={'4'} my={'4'}>
                 <Button colorScheme={'black'} mt={'3'}
                   fontSize={'4xl'}><RxCross2 ></RxCross2></Button>
-                <Image src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1656431456/web-images/logo-d-plus.svg' width={'80px'} zIndex={'2'} />
+                <Image onClick={()=>{navigate('/')}} cursor={'pointer'} src='https://img1.hotstarext.com/image/upload/f_auto,q_90,w_1920/v1656431456/web-images/logo-d-plus.svg' width={'80px'} zIndex={'2'} />
               </Flex>
 
-              <Box boxSize='250px' my={'8'} border={'2px'} borderColor={'white'}>
+              {/* <Box boxSize='250px' my={'8'} border={'2px'} borderColor={'white'}>
                 <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' zIndex={'2'} />
-              </Box>
+              </Box> */}
 
-              <Box >
+              <Box mt={'3rem'}>
                 <Heading as='h2' size='xl' color={'white'} >
                   Subscribe now and start
                 </Heading>
