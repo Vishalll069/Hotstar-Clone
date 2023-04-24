@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,useRef} from 'react'
 import { AspectRatio, Box, Image, Flex, HStack, Heading, Text, Button } from "@chakra-ui/react"
 import { useDispatch, useSelector } from "react-redux"
 import { ActionCalls } from "../../actions/Action"
@@ -11,6 +11,7 @@ import { Genrebox } from './Genrebox';
 import { Navbar } from '../Navbar';
 import { Navbar2 } from './Navbar2';
 import "./Home.css"
+import { TriangleUpIcon } from '@chakra-ui/icons';
 
 
 
@@ -28,6 +29,7 @@ export const Home = () => {
     const ComingShow = useSelector((state) => state.Moviereducer.upcomingShow)
 
     const [opacity1, setOpacity] = React.useState(1);
+    const videoRef = useRef();
 
     function handleScroll() {
         const currentScrollPos = window.pageYOffset;
@@ -45,6 +47,10 @@ export const Home = () => {
 
 
     console.log(mainvideo)
+    useEffect(()=>{
+        videoRef.current?.load();
+
+    },[mainvideo])
     const handlevideo = (e) => {
         console.log(e)
         if (e % 2 != 0) {
@@ -87,7 +93,7 @@ export const Home = () => {
                     </Box>
 
                     <Box p={"24px"} w={"50%"} borderEndRadius={"25px"} color={"white"}
-                        bgGradient='linear(to-r,#0F1014,#16181F)'>
+                        bgGradient='linear(to-r,#0F1014,#0F1014,#16181F)'>
                         <HStack p>
                             <Box>
                                 <Image src='https://brand-img1.hotstarext.com/image/upload/v1585728139/Disnet%20Plus%20Hotstar%20Logo/D_Hotstar_logo_Dark_BG_120x120.png' h={'48px'} w="48px" />
@@ -136,7 +142,7 @@ export const Home = () => {
 
                     {/* <YouTube videoId ="-xt1y8Ldsos" opts={opts}/> */}
 
-                    <video autoPlay muted loop style={{ objectFit: "cover", width: "100%", height: "100vh" }}>
+                    <video ref={videoRef} autoPlay muted loop style={{ objectFit: "cover", width: "100%", height: "100vh" }}>
 
                         <source src={mainvideo} />
                         Your browser does not support HTML5 video.
@@ -154,12 +160,15 @@ export const Home = () => {
 
                     <Box color={"white"} mb={"5%"}>
                         <Box pt={"1%"} >
+                            {mainvideo==bunty?<Heading>Big Buck Bunny</Heading>:
                             <Heading fontSize={["3xl","3xl","3xl","6xl"]} color="goldenrod">
+                                
                                 Avengers
                             </Heading>
+                            }
                         </Box>
                         
-                        <Box ml={"15px"}>
+                        <Box ml={"15px"}>{mainvideo==bunty?null:
                             <Flex><GiSpiderWeb  color='silver' className='icons' />
                                 <Heading color={"silver"} fontSize={["lg","lg","lg","3xl"]}>
                                     Reunite
@@ -170,22 +179,30 @@ export const Home = () => {
 
 
                             </Flex>
+                        }
 
                         </Box>
                         <Box pt={"3"} fontWeight={"bold"}>
                             <Flex mb={'10px'}>
 
-                                <Text fontSize={["2xs","2xs","md","2xl"]}> Jan 2023 2h 30m </Text><GiAlarmClock size={"20px"} />
+                                <Text fontSize={["2xs","2xs","md","lg"]}> Jan 2023 2h 30m </Text><GiAlarmClock size={"20px"} />
                             </Flex>
-                            <Text fontSize={["2xs","2xs","md","2xl"]}> Action| Demons| Horror| School | Supernatural</Text>
+                            {mainvideo==bunty?<Text fontSize={["2xs","2xs","md","lg"]}> Comedy | Animation | Short | Kids</Text>:
+                            <Text fontSize={["2xs","2xs","md","lg"]}> Action| Demons| Horror| School | Supernatural</Text>
+                            }
                         </Box>
-                        <Box w={["80%","60%","60%","40%"]} pt={"1%"} mt={"10px"} overflow={"hidden"}>
+                        <Box w={["80%","60%","60%","43%"]} pt={"1%"} mt={"10px"} overflow={"hidden"}>
+                        {mainvideo==bunty? <Text lineHeight={'1.6em'} opacity={"0.9"} fontSize={["2xs","sm","md","lg"]} >
+                        In the thick and undisturbed forest, sparkling spring has finally arrived, and all creatures, big or small, enjoy life. However, Big Buck Bunny--an enormous, fluffy, and utterly adorable rabbit--is facing a crisis: the ruthless, loud, bullying gang of a flying squirrel is heartlessly harassing him, determined to squash his happiness. Now, this means war. But who will win?</Text>
+                            :
                             <Text lineHeight={'1.6em'} opacity={"0.9"} fontSize={["2xs","sm","md","lg"]} >
+                                
                                 Idly indulging in baseless paranormal activities with the Occult Club, high schooler Yuuji Itadori spends his days at either the clubroom or the hospital, where he visits his bedridden grandfather. However, this leisurely lifestyle soon takes a turn for....
                             </Text>
+                                }
                         </Box>
                         <Box mt={"80px"} >
-                            <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}>Watch Now </Button>
+                            <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}> <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />Watch Now </Button>
                             <Button colorScheme='whiteAlpha' size={"lg"} fontSize={["sm","md","2xl","3xl"]} ml={"20px"}><GiSpiderWeb /></Button>
                         </Box>
                     </Box>
@@ -206,9 +223,11 @@ export const Home = () => {
                                         minW={'80px'}
                                         h={'45px'}
                                         border={"1px solid white"}
+                                        borderRadius={"3px"}
                                         transition={"0.3s"}
                                         _hover={{ transform: "translate(0,-10px)" }}
                                         onClick={() => handlevideo(i + 1)}
+                                        cursor={"pointer"}
                                     >
                                         <Image
                                             src={base + ele.poster_path}
