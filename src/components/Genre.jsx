@@ -4,6 +4,7 @@ import { getByGenre } from '../actions/searchPage/searchAction';
 import { Box, Heading, SimpleGrid , Center} from '@chakra-ui/react';
 import { MovieCard } from './MovieCard';
 import { useParams } from 'react-router-dom';
+import { Navbar } from './Navbar';
 
 export const Genre = () => {
 
@@ -197,6 +198,8 @@ export const Genre = () => {
     console.log("Genre", genreRes);
 
   return (
+    <>
+    <Navbar/>
     <Box w={'80%'} m={'auto'} >
         <Center pt={"2rem"}>
       <Heading  mb="2rem" size="lg" color={"#c7ddea"}>
@@ -210,5 +213,6 @@ export const Genre = () => {
         ))}
       </SimpleGrid>
     </Box>
+    </>
   )
 }
