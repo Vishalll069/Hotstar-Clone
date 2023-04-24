@@ -25,7 +25,7 @@ export const MovieCard = ({ movie }) => {
         minW={"11%"}
 
         style={{ transition: "all 300ms ease " }}
-        _hover={{ transform: "scale(1.3)", zIndex: "2", backgroundImage: 'none' }}
+        _hover={{ transform: "scale(1.2)", zIndex: "2", backgroundImage: 'none' }}
       >
         <Flex
           direction={"column"}
@@ -47,7 +47,10 @@ export const MovieCard = ({ movie }) => {
             alt=""
           />
 
-          <Button><TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />  Watch Now</Button>
+          <Box bgGradient='linear(to-t, black, #0f1014 , #0f1014)'>
+
+          <Button width={'97%'} m={'1px 2px'}><TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />  Watch Now</Button>
+          </Box>
           <Box borderRadius={10} p={2} bg={"black"}>
             <Heading bg={"transparent"} fontSize={'9px'} mt={'10px'} color={"#c7ddea"}>
               {movie.release_date} : {movie.original_language}

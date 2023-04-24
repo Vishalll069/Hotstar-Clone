@@ -1,0 +1,3 @@
+const LOGIN_SUCCESS = "LOG_IN"
+
+export {LOGIN_SUCCESS}

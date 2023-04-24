@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
 import {Box, Button,useToast,Input,HStack,VStack,Text} from "@chakra-ui/react"
+import { useDispatch, useSelector } from 'react-redux';
+import { LOGIN_SUCCESS } from '../../constants/LoginTypes';
 function Otp() {
     const[otp,setotp]=useState()
     const toastRef = useRef();
     let toast = useToast();
     const navigate=useNavigate();
+    const dispatch = useDispatch();
+    
     
   return (
     <VStack  backgroundColor="rgb(34,35,38)" color={'white'} height={{ base: '600px', sm: '500px', md: '300px' }}  width={{ base: '700px', sm: '600px', md: '400px' }}display="flex" m="auto" borderRadius="2%" >
@@ -29,7 +33,8 @@ function Otp() {
                 isClosable: true,
                 
               });
-            navigate('/');  
+              dispatch({type:LOGIN_SUCCESS, payload:true});
+              navigate('/');  
         }
         else{
             toastRef.current = toast({

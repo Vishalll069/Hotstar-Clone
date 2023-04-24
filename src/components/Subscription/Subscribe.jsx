@@ -117,6 +117,7 @@ export const Subscribe = () => {
               </Box>
 
               <Button bgGradient='linear(to-r, rgb(11,85,223), rgb(6,41,151))' fontSize={'xl'}
+              onClick={() => { navigate('/login') }}
                 py={'2'} px={'8'} color={'white'} size={'lg'} className='shailesh'
                 _hover={{ bg: 'blue', bgGradient: 'linear(to-r, rgb(11,85,223), rgb(6,41,151))' }}>Login</Button>
             </Box>
