@@ -198,7 +198,7 @@ export const Genre = () => {
 
   return (
     <Box w={'80%'} m={'auto'} >
-        <Center mt={'2rem'}>
+        <Center pt={"2rem"}>
       <Heading  mb="2rem" size="lg" color={"#c7ddea"}>
         {gname}
       </Heading>
