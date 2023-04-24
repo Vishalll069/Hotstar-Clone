@@ -11,6 +11,7 @@ import {useDebounce} from 'use-debounce'
 import { SearchBody } from "./searchBody";
 import { useDispatch } from "react-redux";
 import { searchAction } from "../../actions/searchPage/searchAction";
+import { Navbar } from "../Navbar";
 // import { BsSearch } from "react-icons/bs";
 
 const SearchPage = () => {
