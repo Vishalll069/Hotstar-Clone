@@ -1,5 +1,5 @@
 # Hotstar Clone
-This is a clone of the popular streaming service Hotstar, created as a personal project to learn and practice building web applications.
+This is a clone of Disney+ hotstar which is an Indian subscription video on-demand over-the-top streaming service
 
 # Getting Started
 To get started, clone this repository to your local machine and run the following commands:
