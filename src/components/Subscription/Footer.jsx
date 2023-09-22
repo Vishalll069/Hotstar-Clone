@@ -10,7 +10,7 @@ import { BsTwitter } from "react-icons/bs";
 const Footer = () => {
  return <Box color={'white'} mt={"2%"} py={'3%'} >
           {/* Top Footer  */}
-          <Flex  gap={'20'} justifyContent={'space-evenly'} mb={'10'}>
+          <Flex  gap={'20'} justifyContent={'space-evenly'} mb={'10'} overflow={"hidden"}>
             <Stack>
               <Text mb={'5'}>Company</Text>
               <Text color={'rgb(112,122,148)'}>About Us</Text>

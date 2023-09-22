@@ -202,7 +202,7 @@ export const Home = () => {
                                 }
                         </Box>
                         <Box mt={"80px"} >
-                            <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}> <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />Watch Now </Button>
+                            <Button colorScheme='whiteAlpha' size={"lg"} w={["40%","35%","30%"]}> <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />Watch Now </Button>
                             <Button colorScheme='whiteAlpha' size={"lg"} fontSize={["sm","md","2xl","3xl"]} ml={"20px"}><GiSpiderWeb /></Button>
                         </Box>
                     </Box>
