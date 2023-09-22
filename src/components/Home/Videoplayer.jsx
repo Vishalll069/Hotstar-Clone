@@ -120,7 +120,7 @@ export const Videoplayer = () => {
                             <Box mt={"80px"} >
                                 <Link to={`/singleplayer/${item.original_title}`}>
                                 <Button colorScheme='whiteAlpha' size={"lg"} w={"30%"}>
-                                <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />{isSubs?"Watch Now":" Subscribe to Watch "
+                                <TriangleUpIcon bg={'transparent'} mr={'5px'} transform={'rotate(90deg)'} />{isSubs?"Watch Now":""
                                     }
                                      </Button></Link>
                                     
